@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.view.DisplayData
+import com.example.myapplication.view.Formulir
 import com.example.myapplication.view.SplashScreen
 
 enum class Navigation {
@@ -36,7 +37,12 @@ Scaffold {
         composable(
             route = Navigation.HomeData.name
         ) {
-            DisplayData(onButtonNext = {}, onButtonBack = {backToSplash(navController)})
+            DisplayData(onButtonNext = {navController.navigate(route = Navigation.FormData.name)}, onButtonBack = {backToSplash(navController)})
+        }
+        composable(
+            route = Navigation.FormData.name
+        ) {
+            Formulir(backToHome = {backToHome(navController)})
         }
     }
 }
@@ -46,6 +52,13 @@ Scaffold {
 private fun backToSplash(navController : NavHostController) {
     navController.popBackStack(
         route = Navigation.SplashScreen.name,
+        inclusive = false
+    )
+}
+
+private fun backToHome(navController : NavHostController) {
+    navController.popBackStack(
+        route = Navigation.HomeData.name,
         inclusive = false
     )
 }

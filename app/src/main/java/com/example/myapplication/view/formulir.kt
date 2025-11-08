@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Formulir(modifier : Modifier) {
+fun Formulir(backToHome : () -> Unit) {
 
     var nama by remember {
         mutableStateOf("")
@@ -42,7 +42,7 @@ fun Formulir(modifier : Modifier) {
         mutableStateOf("")
     }
 
-    Column(modifier) {
+    Column() {
         Text(text = "Formulir Pendaftaran", modifier = Modifier.padding(15.dp), fontSize = 30.sp, fontWeight = FontWeight.Bold)
 
         Text(text = "NAMA LENGKAP", modifier = Modifier.padding(start = 30.dp, top = 10.dp))
@@ -130,7 +130,7 @@ fun Formulir(modifier : Modifier) {
             verticalAlignment = Alignment.Bottom,
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { backToHome() },
                 modifier = Modifier
                     .padding(bottom = 25.dp)
                     .width(120.dp)
