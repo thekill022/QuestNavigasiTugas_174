@@ -38,12 +38,6 @@ fun Formulir(modifier : Modifier) {
     var nama by remember {
         mutableStateOf("")
     }
-    var jk by remember {
-        mutableStateOf("")
-    }
-    var status by remember {
-        mutableStateOf("")
-    }
     var alamat by remember {
         mutableStateOf("")
     }
