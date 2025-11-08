@@ -1,5 +1,6 @@
 package com.example.myapplication.view
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -56,6 +58,55 @@ fun Formulir(modifier : Modifier) {
         val radioOption = listOf<String>("Laki - Laki", "Perempuan")
         val (selectedOption, onOptionSelected) = remember {
             mutableStateOf(radioOption[0])
+        }
+
+        Row(
+            modifier = Modifier
+                .padding(start = 25.dp, top = 15.dp, end = 25.dp)
+                .fillMaxWidth(),
+        ) {
+            radioOption.forEach { jk ->
+                Row(
+                    modifier = Modifier.selectable(
+                        selected = (jk == selectedOption),
+                        onClick = { onOptionSelected(jk) },
+                        role = Role.RadioButton
+                    )
+                ) {
+                    RadioButton(
+                        selected = (jk == selectedOption),
+                        onClick = null
+                    )
+                    Text(text = jk, modifier = Modifier.padding(end = 10.dp))
+                }
+            }
+        }
+
+        val statusOption = listOf<String>("Lajang", "Kawin", "Cerai")
+        val (selectedStatus, onStatusselected) = remember {
+            mutableStateOf(statusOption[0])
+        }
+
+        Text(text = "STATUS PERKAWINAN", modifier = Modifier.padding(start = 30.dp, top = 20.dp))
+        Row (
+            modifier = Modifier
+                .padding(start = 25.dp, top = 15.dp, end = 25.dp)
+                .fillMaxWidth(),
+        ){
+            statusOption.forEach{statuss ->
+                Row(
+                    modifier = Modifier.selectable(
+                        selected = (statuss == selectedStatus),
+                        onClick = {onStatusselected(statuss)},
+                        role = Role.RadioButton
+                    )
+                ) {
+                    
+                    RadioButton(selected = (statuss == selectedStatus), onClick = null)
+                    Text(text = statuss)
+                    
+                }
+            }
         }
 
     }
