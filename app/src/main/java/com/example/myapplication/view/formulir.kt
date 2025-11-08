@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
@@ -148,7 +149,11 @@ fun Formulir(modifier : Modifier) {
             ) {
                 Text(text = "Kembali", color = Color.Blue)
             }
-            Button(onClick = { /*TODO*/ },
+
+            var showDialog by remember {
+                mutableStateOf(false)
+            }
+            Button(onClick = { showDialog = true },
                 modifier = Modifier
                     .padding(bottom = 25.dp)
                     .width(120.dp)
@@ -158,6 +163,19 @@ fun Formulir(modifier : Modifier) {
                 ),) {
                 Text(text = "Submit")
             }
+
+            if (showDialog) {
+                AlertDialog(onDismissRequest = {
+                    showDialog = false
+                }, confirmButton = {
+                    Button(onClick = { showDialog = false }) {
+                        Text(text = "OK")
+                    }
+                },
+                    title = { Text(text = "Data Berhasil Disimpan")},
+                    text = { Text(text = "Nama \t\t\t\t\t\t\t\t: $nama\nJenis Kelamin \t: $selectedOption\nStatus \t\t\t\t\t\t\t: $selectedStatus\nAlamat \t\t\t\t\t\t\t: $alamat")})
+            }
+
         }
         
     }
