@@ -39,36 +39,39 @@ fun DisplayData(modifier : Modifier) {
     Column {
         Text(text = "List Daftar Peserta", fontSize = 35.sp, fontWeight = FontWeight.Medium, modifier = Modifier.padding(top = 25.dp, start = 10.dp, bottom = 20.dp))
 
-        Card(modifier = Modifier
-            .fillMaxWidth()
-            .height(170.dp)
-            .padding(10.dp),
-            border = BorderStroke(width = 1.dp,color = Color.Blue),
-            colors = CardDefaults.cardColors(
-                containerColor = Color.White
-            )
-        ) {
-            Row(
-                modifier = Modifier
-                    .padding(15.dp)
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+        data.forEach {
+            data ->
+            Card(modifier = Modifier
+                .fillMaxWidth()
+                .height(170.dp)
+                .padding(10.dp),
+                border = BorderStroke(width = 1.dp,color = Color.Blue),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color.White
+                )
             ) {
-               Column {
-                   Text(text = "NAMA LENGKAP", fontWeight = FontWeight.SemiBold)
-                   Text(text = "Gibran Fathoni Belva", modifier = Modifier.padding(bottom = 20.dp), color = Color.Gray)
+                Row(
+                    modifier = Modifier
+                        .padding(15.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column {
+                        Text(text = "NAMA LENGKAP", fontWeight = FontWeight.SemiBold)
+                        Text(text = data["nama"]!!, modifier = Modifier.padding(bottom = 20.dp), color = Color.Gray)
 
-                   Text(text = "STATUS PERKAWINAN", fontWeight = FontWeight.SemiBold)
-                   Text(text = "Lajang", color = Color.Gray)
+                        Text(text = "STATUS PERKAWINAN", fontWeight = FontWeight.SemiBold)
+                        Text(text = data["status"]!!, color = Color.Gray)
 
-               }
-                Column {
-                    Text(text = "JENIS KELAMIN", fontWeight = FontWeight.SemiBold)
-                    Text(text = "Laki - Laki", modifier = Modifier.padding(bottom = 20.dp), color = Color.Gray)
+                    }
+                    Column {
+                        Text(text = "JENIS KELAMIN", fontWeight = FontWeight.SemiBold)
+                        Text(text = data["jenis_kelamin"]!!, modifier = Modifier.padding(bottom = 20.dp), color = Color.Gray)
 
-                    Text(text = "ALAMAT", fontWeight = FontWeight.SemiBold)
-                    Text(text = "Bantul", color = Color.Gray)
+                        Text(text = "ALAMAT", fontWeight = FontWeight.SemiBold)
+                        Text(text = data["alamat"]!!, color = Color.Gray)
 
+                    }
                 }
             }
         }
