@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
 
 @Composable
-fun SplashScreen(modifier : Modifier) {
+fun SplashScreen(onClickToHome : () -> Unit) {
 
     val img = R.drawable.todo
     
@@ -38,7 +38,7 @@ fun SplashScreen(modifier : Modifier) {
         Image(painter = painterResource(id = img), contentDescription = "ToDo icon")
         Text(text = "Gibran Fathoni Belva", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
         Text(text = "20230140174", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-        Button(onClick = { /*TODO*/ }, modifier = Modifier
+        Button(onClick = { onClickToHome() }, modifier = Modifier
             .width(300.dp)
             .height(70.dp)
             .padding(top = 20.dp), colors = ButtonDefaults.buttonColors(containerColor = Color.Blue) ) {

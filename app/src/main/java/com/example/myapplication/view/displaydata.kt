@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun DisplayData(modifier : Modifier) {
+fun DisplayData(onButtonNext : () -> Unit, onButtonBack : () -> Unit) {
 
     val data : List<Map<String, String>> = listOf(
         mapOf(
@@ -44,7 +44,7 @@ fun DisplayData(modifier : Modifier) {
         )
     )
 
-    Column(modifier) {
+    Column() {
         Text(text = "List Daftar Peserta", fontSize = 35.sp, fontWeight = FontWeight.Medium, modifier = Modifier.padding(top = 25.dp, start = 10.dp, bottom = 20.dp))
 
         data.forEach {
@@ -90,7 +90,7 @@ fun DisplayData(modifier : Modifier) {
             horizontalArrangement = Arrangement.Center
         ) {
 
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { onButtonBack() },
                 modifier = Modifier
                     .padding(bottom = 30.dp)
                     .width(130.dp)
@@ -104,7 +104,7 @@ fun DisplayData(modifier : Modifier) {
                 Text(text = "Beranda", color = Color.Blue, fontSize = 20.sp)
             }
             Spacer(modifier = Modifier.width(30.dp))
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { onButtonNext() },
                 modifier = Modifier
                     .padding(bottom = 30.dp)
                     .width(130.dp)
