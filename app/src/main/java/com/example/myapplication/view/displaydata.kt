@@ -55,19 +55,19 @@ fun DisplayData(modifier : Modifier) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                Column {
-                   Text(text = "NAMA LENGKAP")
-                   Text(text = "Gibran Fathoni Belva", modifier = Modifier.padding(bottom = 20.dp))
+                   Text(text = "NAMA LENGKAP", fontWeight = FontWeight.SemiBold)
+                   Text(text = "Gibran Fathoni Belva", modifier = Modifier.padding(bottom = 20.dp), color = Color.Gray)
 
-                   Text(text = "STATUS PERKAWINAN")
-                   Text(text = "Lajang")
+                   Text(text = "STATUS PERKAWINAN", fontWeight = FontWeight.SemiBold)
+                   Text(text = "Lajang", color = Color.Gray)
 
                }
                 Column {
-                    Text(text = "JENIS KELAMIN")
-                    Text(text = "Laki - Laki", modifier = Modifier.padding(bottom = 20.dp))
+                    Text(text = "JENIS KELAMIN", fontWeight = FontWeight.SemiBold)
+                    Text(text = "Laki - Laki", modifier = Modifier.padding(bottom = 20.dp), color = Color.Gray)
 
-                    Text(text = "ALAMAT")
-                    Text(text = "Bantul")
+                    Text(text = "ALAMAT", fontWeight = FontWeight.SemiBold)
+                    Text(text = "Bantul", color = Color.Gray)
 
                 }
             }
