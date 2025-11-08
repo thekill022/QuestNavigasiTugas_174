@@ -44,7 +44,7 @@ fun DisplayData(modifier : Modifier) {
         )
     )
 
-    Column {
+    Column(modifier) {
         Text(text = "List Daftar Peserta", fontSize = 35.sp, fontWeight = FontWeight.Medium, modifier = Modifier.padding(top = 25.dp, start = 10.dp, bottom = 20.dp))
 
         data.forEach {

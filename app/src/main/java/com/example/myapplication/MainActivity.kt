@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.view.DisplayData
+import com.example.myapplication.view.Formulir
 import com.example.myapplication.view.SplashScreen
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    DisplayData(modifier = Modifier.fillMaxSize())
+                    Formulir(modifier = Modifier.fillMaxSize())
                 }
             }
         }
