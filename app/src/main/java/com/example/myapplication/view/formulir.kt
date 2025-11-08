@@ -109,5 +109,17 @@ fun Formulir(modifier : Modifier) {
             }
         }
 
+        Text(text = "ALAMAT", modifier = Modifier.padding(start = 30.dp, top = 20.dp))
+        OutlinedTextField(
+            value = alamat,
+            onValueChange = { value ->
+                alamat = value
+            },
+            label = { Text(text = "Alamat")},
+            modifier = Modifier
+                .padding(start = 30.dp, top = 10.dp, end = 30.dp)
+                .fillMaxWidth()
+        )
+
     }
 }
